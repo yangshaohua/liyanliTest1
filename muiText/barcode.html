@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<style>
+			html,
+			body,
+			.bor_box {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.bor_box {
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+			}
+			
+			header {
+				height: 3.84rem;
+				width: 100%;
+				background: #009999;
+				text-align: center;
+				line-height: 3.5rem;
+				color: #fff;
+				font-size: 1.6rem;
+			}
+			
+			header a {
+				height: 1.6rem;
+				width: 1.6rem;
+			}
+			
+			.back_box {
+				padding: 0.5% 2% 1% 1%;
+				border-right: 2px solid #4fa0a0;
+				float: left;
+			}
+			
+			.bor_himg1 {
+				/*height:.26rem;
+				margin:.29rem .37rem;*/
+			}
+			
+			.bor_himg2 {
+				/*height:.34rem;
+				/*width:.2rem;*/
+				/*margin:.25rem .40rem;*/
+			}
+			
+			#bcid {
+				flex: 1;
+				background: #000;
+			}
+			
+			footer {
+				width: 100%;
+				height: 8%;
+			}
+			
+			#sgd {
+				/*width:1.1rem;*/
+				padding: 0.5% 2% 1% 1%;
+				border-right: 2px solid #4fa0a0;
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bor_box">
+			<header>
+				<a href="###" class="mui-action-back">
+					<div class="back_box" id="back-box">
+						<img src="img/backUp.png" class="bor_himg1 fl" width="30" />
+					</div>
+				</a>
+				<span>扫描设备信息</span>
+				<!--<div class="fr" id="sgd">
+					<img src="img/closeFlash.png" class="bor_himg2" id="sgd_img" width="30" />
+				</div>-->
+			</header>
+			<div id="bcid">
+				<div style="height:100%"></div>
+			</div>
+		</div>
+
+		<!--<footer>
+			<div class="fbt" onclick="back(true)" >取　 消</div>
+			<div class="fbt" onclick="scanPicture();">从相册选择二维码</div>
+		</footer>-->
+	</body>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/base.js"></script>
+	<script src="js/rem.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			//			preloadPages: [{
+			//				id: 'newsc.html',
+			//				url: 'newsc.html'
+			//			}],
+			//			beforeback: function() {
+			//				//获得列表界面的webview
+			//				var list = plus.webview.getWebviewById('newsc.html');
+			//				//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+			//				mui.fire(list, 'refresh');
+			//				//返回true，继续页面关闭逻辑
+			//				return true;
+			//			}
+		});
+		var ws = null,
+			wo = null;
+		var scan = null,
+			domready = false;
+		var resp;
+		var mynews;
+		// H5 plus事件处理
+		function plusReady() {
+			if(ws || !window.plus || !domready) {
+				return;
+			}
+			// 获取窗口对象
+			ws = plus.webview.currentWebview();
+			wo = ws.opener();
+			// 开始扫描
+			ws.addEventListener('show', function() {
+				scan = new plus.barcode.Barcode('bcid');
+				scan.onmarked = onmarked;
+				scan.start();
+			});
+			self = plus.webview.currentWebview();
+			mynews = self.idp;
+			mynews = self.idp;
+			// 显示页面并关闭等待框
+			ws.show("pop-in");
+		}
+		if(window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+		// 监听DOMContentLoaded事件
+		document.addEventListener("DOMContentLoaded", function() {
+			domready = true;
+			plusReady();
+
+		}, false);
+
+		// 二维码扫描成功
+		function onmarked(type, result, file) {
+
+			switch(type) {
+				case plus.barcode.QR:
+					type = "QR";
+					break;
+				case plus.barcode.EAN13:
+					type = "EAN13";
+					break;
+				case plus.barcode.EAN8:
+					type = "EAN8";
+					break;
+				default:
+					type = "其它";
+					break;
+			}
+			result = result.replace(/\n/g, '');
+
+			var detailPage = null;
+			if(!detailPage) {
+				detailPage = plus.webview.getWebviewById('' + mynews + '');
+
+			}
+			mui.fire(detailPage, 'baInfo', {
+				baId: result
+			})
+			//	        wss.show();
+			console.log(result)
+			var wss = plus.webview.currentWebview();
+			wss.close();
+			mui.openWindow({
+				url: '' + mynews + '',
+				id: '' + mynews + '',
+				show: {
+					aniShow: 'pop-in'
+				},
+				waiting: {
+					autoShow: false
+				}
+			})
+		}
+		// 从相册中选择二维码图片
+		/*function scanPicture() {
+            plus.gallery.pick(function (path) {
+                plus.barcode.scan(path, onmarked, function (error) {
+                    plus.nativeUI.alert("无法识别此图片");
+                });
+            }, function (err) {
+      
+            });
+        } */
+
+		/*var back=function(hide){
+			if(plus){
+				console.log()
+//				ws||(ws=plus.webview.currentWebview());
+				if(hide||ws.preate){
+					ws.hide('auto');
+				}else{
+					ws.close('auto');
+				}
+			}
+		};*/
+
+		var back_box = document.getElementById("back-box");
+		back_box.addEventListener('touchstart', function() {
+			back_box.style.background = '#00dede'
+		})
+		back_box.addEventListener('touchend', function() {
+			back_box.style.background = '#47a9ea';
+			mui.back()
+		})
+
+		var sgd = document.getElementById("sgd");
+		var sgd_img = document.getElementById("sgd_img")
+		var kg = false;
+		//		sgd.addEventListener('tap', function() {
+		//			if(kg) {
+		//				kg = false;
+		//				scan.setFlash(false)
+		//				sgd_img.src = 'img/openFlash.png'
+		//			} else {
+		//				kg = true;
+		//				scan.setFlash(true);
+		//				sgd_img.src = 'img/closeFlash.png'
+		//			}
+		//
+		//		})
+	</script>
+
+</html>

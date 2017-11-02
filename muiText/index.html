@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户登录</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+
+		<style type="text/css">
+			body {
+				background-color: #efeff4;
+			}
+			
+			#login {
+				border: 1px solid #009999;
+				background-color: #009999;
+			}
+			
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content {
+				margin-top: 0%;
+				box-sizing: border-box;
+				padding: 40% 5% 15% 5%;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 10%;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+			.hids {
+				display: none;
+			}
+			
+			.recover1 {
+				position: absolute;
+				width: 111.5%;
+				height: 148%;
+				top: -35%;
+				left: -6%;
+				background: #999999;
+				z-index: -1;
+				filter: alpha(opacity=40);
+				-moz-opacity: 0.6;
+				-khtml-opacity: 0.6;
+				opacity: 0.6;
+				text-align: center;
+				color: #fff;
+				_position: absolute;
+				_top: expression_r(document . documentElement . clientHeight+ document . documentElement . scrollTop - this . offsetHeight);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="height: 60px;line-height: 60px;">
+			<h1 style="height: 60px;line-height: 60px;" class="mui-title">用户登录</h1>
+			<button onclick="appe()" id="scan" value="" style="position: absolute;top: 20.1%;right: 10%;height: 40px;line-height: 27px;">设置</button>
+		</header>
+		<div id="appear" class="hids appear" style="position: absolute;left:5%;top:10%;width: 90%;z-index: 800;background: write;height: 800px;">
+			<div onclick="hidsd()" class="recover1">
+
+			</div>
+			<ul id="listForm" style="background-color: #CCCCCC;height: 40%;width:100%;background: white;border: 0.1px solid transparent;margin-left: 0%;margin-top: 22%;">
+				<h1 style="height: 60px;line-height: 60px;font-size: 18px;" class="mui-title">服务器地址信息</h1>
+
+				<div style="margin-top: 18%;">
+					<span style="margin-bottom: 2%;display: inline-block;vertical-align: middle;margin-left: 4%;">服务器地址：</span><input style="display: inline-block;vertical-align: middle;width: 75%;" id="getV" type="text" name="" id="" value="http://139.129.216.59:8020/api/Device/QueryData" />
+				</div>
+
+				<button onclick="appearUrl()" id="confirmBtns" style="float: right;bottom: 46%;position: absolute;right:10.1%;background: #337ab7;color:white ;">确定</button>
+				<button onclick="hids()" id="confirmBtnfalse" style="float: right;bottom: 46%;position: absolute;right:25.5%;">取消</button>
+			</ul>
+		</div>
+
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='userName' type="text" class="mui-input-clear mui-input" placeholder="请输入用户名">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='pwd' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>
+			</form>
+			<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						记住密码
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/customer.js"></script>
+		<script type="text/javascript">
+			var userName;
+			var passw;
+			var isActive = false;
+			(function($, doc) {
+				mui.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					
+					var stor = window.localStorage;
+					document.getElementById('userName').value = stor.getItem("name");
+					document.getElementById('pwd').value = stor.getItem("password");
+
+					var autoLoginButton = document.getElementById("autoLogin");
+					var logninButton = document.getElementById("login");
+					if(stor.getItem("password") != null) {
+						isActive = true;
+						autoLoginButton.classList[isActive ? 'add' : 'remove']('mui-active')
+					}
+
+					autoLoginButton.addEventListener('toggle', function(event) {
+						setTimeout(function() {
+							isActive = event.detail.isActive;
+						}, 50);
+					}, false);
+
+					logninButton.addEventListener('tap', function(event) {
+						if(urls == null || urls == "") {
+							mui.toast("请先设置服务器地址信息");
+							return;
+						}
+						plus.nativeUI.showWaiting("登录中...");
+
+						var userName = document.getElementById('userName').value;
+						var pwd = document.getElementById('pwd').value;
+						if(userName == null || userName == "" || pwd == null || pwd == "") {
+							mui.toast('请输入用户名和密码');
+							return;
+						}
+
+						jQuery.ajax({
+							type: 'post',
+							url: urls,
+							data: {
+								functionName: "UserLogin",
+								jsonStr: "[{userName :'" + userName + "', password:'" + pwd + "' }]"
+							},
+							crossDomain: true,
+							dataType: 'json',
+							success: function(data) {
+
+								if(data.Code == 1) {
+									if(!isActive) {
+										stor.setItem("password", "");
+									} else {
+										stor.name = userName;
+										stor.password = pwd;
+									}
+									var userID = JSON.parse(data.Datas)
+									setTimeout(function() {
+										plus.nativeUI.closeWaiting();
+										$.openWindow({
+											url: 'list.html',
+											id: 'list',
+											show: {
+												aniShow: 'pop-in'
+											},
+											waiting: {
+												autoShow: false
+											},
+											extras: {
+												userName: userID[0].Account,
+												userId: userID[0].UserId
+											}
+										});
+									}, 2000);
+									//									window.location.href = "list.html";
+								} else {
+									mui.toast('用户名或密码不正确！');
+									return;
+								}
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								mui.toast('服务忙，请稍后重试！');
+								return;
+							}
+						});
+					})
+				})
+			}(mui, document));
+
+			function appe() {
+				$("#appear").css('display', 'block')
+			}
+
+			function appearUrl() {
+				urls = $('#getV').val();
+				localStorage.setItem('urls', urls);
+				$("#appear").css('display', "none");
+			}
+
+			function hids() {
+				$("#appear").css('display', "none");
+			}
+
+			function hidsd() {
+				$("#appear").css('display', "none");
+			}
+		</script>
+
+	</body>
+
+</html>

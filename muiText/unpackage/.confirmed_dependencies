@@ -1,0 +1,141 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jquery.min.js",
+			"data.json",
+			"img/scroww_07.png",
+			"img/scroww_03.png",
+			"img/sign.png",
+			"fonts/mui.ttf",
+			"list.html",
+			"js/bootstrap.min.js",
+			"css/style.css",
+			"css/bootstrap.min.css",
+			"js/customer.js"
+		],
+		"refer": [
+			"list.html"
+		]
+	},
+	"detail.html": {
+		"resources": [
+			"img/scroww_07.png",
+			"fonts/mui.ttf",
+			"img/scroww_03.png",
+			"img/sign.png",
+			"list.html",
+			"js/mui.picker.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"css/bootstrap.min.css",
+			"js/bootstrap-table-zh-CN.min.js",
+			"js/bootstrap-table.min.js",
+			"js/bootstrap.min.js",
+			"js/bootstrap-table-locale-all.min.js",
+			"img/back.png",
+			"js/customer.js",
+			"img/beijingtu.png",
+			"css/detail.css",
+			"js/detail.js"
+		],
+		"refer": [
+			"list.html"
+		]
+	},
+	"list.html": {
+		"resources": [
+			"detail.html",
+			"newsc.html",
+			"js/mui.picker.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"index.html",
+			"js/bootstrap-table-zh-CN.min.js",
+			"css/bootstrap-table.min.css",
+			"js/bootstrap-table.min.js",
+			"js/bootstrap-table-locale-all.min.js",
+			"js/bootstrap.min.js",
+			"css/bootstrap.min.css",
+			"css/mui.picker.css",
+			"js/customer.js",
+			"img/back.png"
+		],
+		"refer": [
+			"detail.html",
+			"newsc.html",
+			"index.html",
+			"update.html"
+		]
+	},
+	"newsc.html": {
+		"resources": [
+			"list.html",
+			"fonts/mui.ttf",
+			"img/scroww_07.png",
+			"js/mui.picker.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"img/scroww_03.png",
+			"css/mui.min.css",
+			"img/sign.png",
+			"js/bootstrap-typeahead.js",
+			"css/style.css",
+			"css/bootstrap.min.css",
+			"js/jquery.combo.select.js",
+			"css/combo.select.css",
+			"js/bootstrap-table-zh-CN.min.js",
+			"js/bootstrap-table.min.js",
+			"js/bootstrap.min.js",
+			"js/bootstrap-table-locale-all.min.js",
+			"img/back.png",
+			"js/customer.js",
+			"js/newsc.js",
+			"css/newsc.css"
+		],
+		"refer": [
+			"list.html",
+			"detail.html",
+			"barcode.html"
+		]
+	},
+	"update.html": {
+		"resources": [
+			"img/scroww_07.png",
+			"js/jquery.combo.select.js",
+			"fonts/mui.ttf",
+			"img/sign.png",
+			"css/combo.select.css",
+			"js/mui.picker.js",
+			"js/jquery.min.js",
+			"js/bootstrap-table-zh-CN.min.js",
+			"js/bootstrap-table.min.js",
+			"css/bootstrap.min.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/bootstrap.min.js",
+			"js/bootstrap-table-locale-all.min.js",
+			"img/back.png",
+			"js/customer.js",
+			"img/beijingtu.png",
+			"js/update.js",
+			"css/update.css"
+		],
+		"refer": [
+			"list.html",
+			"barcode.html"
+		]
+	},
+	"barcode.html": {
+		"resources": [
+			"img/backUp.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	}
+}

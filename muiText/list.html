@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="shortcut icon" href="icon/favicon.ico">
+		<title></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/bootstrap-table.min.css" rel="stylesheet" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<style type="text/css">
+			html {
+				font-family: "微软雅黑";
+				font-size: 62.5%;
+			}
+			
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: 1.4rem;
+			}
+			
+			.like {
+				padding-left: 1%;
+			}
+			
+			h1 {
+				text-align: center;
+				color: #009999;
+				margin: 2%;
+			}
+			
+			.th-inner {
+				color: #0D8870;
+				font-family: "微软雅黑";
+				font-size: 18px;
+			}
+			
+			.no-records-found {
+				font-family: "微软雅黑";
+				font-size: 16px;
+				color: #666666;
+			}
+			
+			tbody {
+				color: #666666;
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}
+			
+			.fht-cell {
+				color: #888888;
+			}
+			
+			.bs-checkbox input {
+				background: green;
+			}
+			
+			.n_header {
+				box-sizing: border-box;
+				padding-left: 0%;
+				padding-right: 0%;
+				padding-top: 10%;
+				/*margin-top: 8%;*/
+			}
+			/*.n_header input[type="text"]{
+				width: 100%;
+			}*/
+			
+			.n_header button {
+				margin-bottom: 3%;
+			}
+			
+			.n_header button:first-of-type {
+				margin-left: 4%;
+			}
+			
+			.radio {
+				padding-left: 50px;
+			}
+			
+			.n_header button {
+				/*display: inline-block;*/
+			}
+			
+			label {
+				font-weight: 300;
+			}
+			
+			.newInput {
+				margin-top: 10px;
+			}
+			
+			.newInfo {
+				margin-left: 10px;
+				margin-bottom: 5px;
+				padding: 8px 10px 8px 10px;
+			}
+			
+			.newInput[readonly] {
+				background-color: white;
+			}
+			
+			.mui-action-back {
+				padding-left: 1.2%;
+			}
+			
+			.mui-action-back:hover {
+				background-color: #009999;
+			}
+			
+			.fixed-table-pagination {
+				margin-top: 2%;
+			}
+			
+			.pagination-detail {
+				font-size: 16px;
+				margin-left: 2.33%;
+			}
+			
+			.pagination {
+				margin-right: 2%;
+			}
+			
+			.mui-bar .mui-title {
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				width: 100%;
+				left: 0;
+				font-size: 24px;
+				font-family: "微软雅黑";
+				color: #009999;
+			}
+			
+			.mui-bar {
+				height: 60px !important;
+			}
+			
+			label {
+				color: #009999;
+				font-family: "微软雅黑";
+				font-size: 16px;
+				font-weight: 800;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">维修保养列表
+			<a href="javascript:void(0)" class="mui-action-back" style="position: absolute;top: 0%;left:0%;">
+						<img src="img/back.png" class="bor_himg1 fl" style="width: 70%;" />
+				</a></h1>
+
+		</header>
+		<div class="n_header">
+			<form class="form-inline" id="lineForm">
+				<div class="form-group col-md-6">
+					<label for="k_name" class="col-md-2">所属科室</label>
+					<input type="text" class="form-control newInput col-md-10" id="k_name" placeholder="科室名称">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="s_name" class="col-md-2">设备名称</label>
+					<input type="text" class="form-control newInput col-md-10" id="s_name" placeholder="设备名称">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="d_date" class="col-md-2">送修日期</label>
+					<a id='timeBtn' style="">
+						<input type="text" readonly="readonly" class="form-control newInput col-md-10" id="d_date" placeholder="2017-01-01">
+						<!--<label id="d_date" style="color: #1ABD9D;font-family: '微软雅黑';font-size: 16px;width:190px;height: 30px;padding-left: 20px;">选择日期 ...</label>-->
+					</a>
+
+				</div>
+				<div class="form-group col-md-6">
+					<label for="d_date" class="col-md-2">是否完成</label>
+					<div class="radio">
+						<label><input type="radio" name="radioC" value="1">  是   </label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="radioC" checked="checked" value="0"> 否 </label>
+					</div>
+
+				</div>
+			</form>
+			<div class="form-group" style="float: right;position: relative;top:-50px;right: 0px;">
+				<button class="btn btn-default" onclick="searchs()" style=" width: 80px;float: left;position: absolute;top: -5px;right: 30px;background: #5BC0DE;color: white;">查询</button>
+				<button class="btn btn-default" onclick="resetForm()" style=" width: 80px;float: left;position: absolute;top: -65px;right: 30px;background: #5BC0DE;color:white;">重置</button>
+			</div>
+		</div>
+		<div class="cpBtn" style="margin: 1%;">
+			<button id="creats" class="btn btn-info">新增</button>
+			<button class="btn-danger" onclick="deleteRepair()">删除</button>
+		</div>
+		<table id="table">
+			<thead>
+				<tr>
+					<th data-field="state" data-align="center" data-checkbox="true" data-width="60px"></th>
+					<th data-field="Id" data-visible="false">编号</th>
+					<th data-field="DeviceName" data-align="center">设备名称</th>
+					<th data-field="OrganizationName" data-align="center" data-width="10%">所属科室</th>
+					<th data-field="RepairPerson" data-align="center">检修人</th>
+					<th data-field="RepairDate" data-formatter="deals" data-align="center">检修时间</th>
+					<th data-field="FinishState" data-formatter="getStatus" data-align="center">是否完成</th>
+					<!--<th data-field="Remark" data-align="center">备注</th>-->
+					<th data-field="Id" data-formatter="deal" data-align="center">操作</th>
+				</tr>
+			</thead>
+
+		</table>
+
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/customer.js"></script>
+		<script src="js/bootstrap-table.min.js"></script>
+		<script src="js/bootstrap-table-locale-all.min.js"></script>
+		<script src="js/bootstrap-table-zh-CN.min.js"></script>
+		<script type="text/javascript">
+			//			var urls = "http://192.168.0.75:8080/api/Device/QueryData";
+			var row = [];
+			var html;
+			var idt;
+			var devObj;
+			var divObj;
+			var sql = "select Id,DeviceName,DeviceCode,RepairPerson,OrganizationName,RepairDate,ManufacturerName,FinishState,Remark from EAM_PMRepairReport WHERE 1=1 AND FinishState =0 ";
+			var sqlSearch;
+			var $table = jQuery("#table");
+			var picker = "";
+			var sqlStr;
+			var namee;
+			var ids;
+			var u_state = 0;
+			// 新增信息 
+			$('#creats').bind('tap', function() {
+
+				mui.openWindow({
+					url: 'newsc.html',
+					id: 'newsc.html',
+					extras: {
+						namee: self.userName,
+						ids: self.userId,
+					}
+				});
+
+			})
+
+			//				返回刷新
+			window.addEventListener('audit', function(event) {
+				devObj = event.detail.namee;
+				divObj = event.detail.userId;
+				location.reload()
+
+			});
+
+			jQuery(function() {
+				mui.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					self = plus.webview.currentWebview();
+					sqlStr = " AND CreateUserId='" + self.userId + "' ";
+					sql += sqlStr;
+					console.log(sql);
+					InitTable(sql);
+				})
+				var timevalue = document.getElementById("d_date");
+				var timeBtn = document.getElementById("timeBtn");
+				timeBtn.addEventListener("tap", function(event) {
+					var dDate = new Date();
+					//设置当前日期（不设置默认当前日期）
+
+					dDate.setFullYear()
+					var minDate = new Date();
+					//最小时间
+					minDate.setFullYear(2010, 0, 1);
+					var maxDate = new Date();
+					//最大时间
+					maxDate.setFullYear(2060, 12, 31);
+					plus.nativeUI.pickDate(function(e) {
+						var d = e.date;
+						var dm = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()
+						timevalue.value = dm;
+
+						//						mui.toast('您选择的日期是:' + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
+
+					}, function(e) {
+						//						mui.toast("您没有选择日期");
+					}, {
+						title: '请选择日期',
+						date: dDate,
+						minDate: minDate,
+						maxDate: maxDate
+					});
+				})
+			});
+
+			function getStates() {
+				var val = $('input:radio[name="radioC"]:checked').val();
+				if(val == 1) {
+
+					return 1;
+				} else {
+					return 0;
+				}
+			};
+			//&& WHERE DeviceName = '" + s_name + "' && WHERE RepairDate = '" + d_date + "'
+			function resetForm() {
+				document.getElementById("lineForm").reset()
+			}
+
+			function searchs() {
+				var k_name = document.getElementById('k_name').value;
+				var s_name = document.getElementById('s_name').value;
+				var d_date = document.getElementById('d_date').value;
+				u_state = getStates()
+				sqlSearch = "select Id,DeviceName,DeviceCode,RepairPerson,OrganizationName,RepairDate,ManufacturerName,FinishState,Remark from EAM_PMRepairReport WHERE 1=1 " + sqlStr;
+				if(k_name != '' && k_name != null) {
+					sqlSearch += "AND OrganizationName like '%" + k_name + "%'";
+
+				}
+				if(s_name != '' && s_name != null) {
+					sqlSearch += " AND DeviceName like '%" + s_name.trim() + "%'";
+				}
+				if(d_date != '' && d_date != null) {
+
+					sqlSearch += " AND RepairDate = '" + d_date + "'";
+				}
+				if(u_state == '1') {
+					sqlSearch += " AND FinishState = '" + u_state + "'";
+
+					$('.btn-danger').css('display', 'none')
+
+				}
+				if(u_state == '0') {
+					sqlSearch += " AND FinishState = '" + u_state + "'";
+
+					$('.btn-danger').css('display', 'block')
+					$('.btn-danger').css('display', "inline-block")
+				}
+				InitTable(sqlSearch);
+			}
+
+			function InitTable(sqlStr) {
+				$table.bootstrapTable("destroy");
+
+				$table.bootstrapTable({
+					url: urls,
+					method: 'POST',
+					dataType: 'json',
+					contentType: "application/x-www-form-urlencoded",
+					cache: false,
+					sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
+					pagination: true,
+					queryParams: queryParams,
+					pageNumber: 1, //初始化加载第一页，默认第一页
+					pageSize: 10, //每页的记录行数（*）
+					pageList: [10, 15, 20, 100],
+					clickToSelect: true,
+					responseHandler: function(res) {
+
+						var newJson = {
+							total: 0,
+							rows: ""
+						};
+						if(res.Code == 1) {
+							var names = JSON.parse(res.Datas);
+							newJson = {
+								total: names.total,
+								rows: names.rows
+							};
+						}
+						return newJson;
+					}
+				});
+
+				function queryParams(params) {
+					var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+						limit: params.limit, //页面大小
+						offset: params.offset, //页码
+						pageFlag: true,
+						functionName: "QueryList",
+						jsonStr: "[{\"jsonStr\":\"" + sqlStr + "\"}]"
+					};
+					return temp;
+				};
+			}
+			//得到查询的参数
+
+			function getStatus(value, row, index) {
+				return value = (value == "True") ? "是" : "否";
+			}
+
+			function deal(value, row, index) {
+				if(u_state == "0") {
+					var html = [];
+					html.push('<button class="btn-info newInfo" id="reads" onclick="read(\'' + row.Id + '\')">查看</button><button class="btn-primary newInfo" id="editRepair" onclick="editRepair(\'' + row.Id + '\')">修改</button>')
+					return html.join('');
+				} else {
+					var html = [];
+					html.push('<button class="btn-info newInfo" id="reads" onclick="read(\'' + row.Id + '\')">查看</button>')
+					return html.join('');
+				}
+
+			}
+
+			function deals(value, row, index) {
+				var html = [];
+				var timew = new Date(value).Format("yyyy/MM/dd");
+				return timew
+
+			}
+
+			function editRepair(value) {
+
+				mui.openWindow({
+					url: 'update.html',
+
+					extras: {
+						version: value,
+						ids: self.userId,
+						namer: self.userName,
+
+					}
+				});
+			}
+
+			function read(value) {
+
+				mui.openWindow({
+					url: 'detail.html',
+					id: "detail",
+					extras: {
+						version: value,
+					}
+				});
+			}
+			//<button class="btn-danger" id="deleteRepair" onclick="deleteRepair(\'' + row.Id + '\')">删除</button>
+			function deleteRepair(value) {
+				var btnArray = ['取消', '确认'];
+				var content = $table.bootstrapTable('getSelections');
+				if(content.length < 1) {
+					mui.toast("请选择要删除的数据");
+					return;
+				}
+				mui.confirm('确认是否删除？', '数据删除', btnArray, function(e) {
+					if(e.index == 1) {
+						var deleteId = "";
+						$.each(content, function(index, item) {
+							deleteId += "'" + item.Id + "',"; //组装删除id
+						});
+						deleteId = deleteId.substring(0, deleteId.length - 1);
+						deleteId = "(" + deleteId + ")";
+						var deleteSql = "DELETE FROM EAM_PMRepairReport WHERE Id IN " + deleteId + sqlStr;
+						var deleteSql1 = "DELETE FROM EAM_PMRepairParts WHERE PMRepairReportId IN" + deleteId;
+
+						deleteData(deleteSql);
+						deleteData(deleteSql1);
+					} else {
+						return;
+					}
+				})
+			}
+
+			function deleteData(deleteSql) {
+				console.log(deleteSql)
+				jQuery.ajax({
+					type: 'post',
+					url: urls,
+					data: {
+						functionName: "NoneQuery",
+						jsonStr: "[{\"jsonStr\":\"" + deleteSql + "\"}]"
+					}, //sql语句按照json格式进行传递
+					crossDomain: true,
+					dataType: 'json',
+					success: function(data) {
+						if(data.Code == 1) {
+							if(sqlSearch != null && sqlSearch != "") {
+								InitTable(sqlSearch);
+							} else {
+								InitTable(sql);
+							}
+						} else {
+							mui.toast("删除成功")
+						}
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						console.log(XMLHttpRequest.status);
+						console.log(XMLHttpRequest.readyState);
+						console.log(textStatus);
+						mui.toast("服务器繁忙，请稍后重试。")
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

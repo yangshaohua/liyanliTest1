@@ -1,0 +1,841 @@
+
+		body {
+				background: #FFFFFF;
+			}
+			
+			.recover1 {
+				position: absolute;
+				width: 111.5%;
+				height: 148%;
+				top: -35%;
+				left: -6%;
+				background: #999999;
+				z-index: -1;
+				filter: alpha(opacity=40);
+				-moz-opacity: 0.6;
+				-khtml-opacity: 0.6;
+				opacity: 0.6;
+				text-align: center;
+				color: #fff;
+				_position: absolute;
+				_top: expression_r(document . documentElement . clientHeight+ document . documentElement . scrollTop - this . offsetHeight);
+			}
+			
+			.recover {
+				position: absolute;
+				width: 100%;
+				height: 1024px;
+				top: -64%;
+				left: 0;
+				background: #999999;
+				z-index: -1;
+				filter: alpha(opacity=40);
+				-moz-opacity: 0.6;
+				-khtml-opacity: 0.6;
+				opacity: 0.6;
+				text-align: center;
+				color: #fff;
+				_position: absolute;
+				_top: expression_r(document . documentElement . clientHeight+ document . documentElement . scrollTop - this . offsetHeight);
+			}
+		}
+		.divradio {
+		
+			
+			background: #FFFFFF;
+		}
+		.mui-table-view {
+			background: #FFFFFF !important;
+		}
+		.divradio ul li label {
+			padding-left: 1%;
+			padding-right: 5%;
+		}
+		.divradio h5 {
+			color: #0d8870;
+			font-family: '微软雅黑';
+			font-size: 16px;
+		}
+		.divradio ul li {
+			color: #666666;
+		}
+		.mui-btn-block {
+			margin-bottom: 0px;
+		}
+		.mui-table-view:before {
+			display: none;
+		}
+		.mui-table-view-radio:after {
+			display: none;
+		}
+		.mui-input-row {
+			clear: none;
+		}
+		select {
+			height: 30px;
+			line-height: 30px;
+			width: 100%;
+			
+			
+			padding: 0;
+			margin-bottom: 0;
+			padding-left: 1%;
+			border: none;
+			outline: none;
+		}
+		.mui-table-view {
+			background: #efeff4;
+		}
+		h2 {
+			text-align: center;
+			color: #009999;
+			font-weight: normal;
+			font-family: "微软雅黑";
+			font-size: 32px;
+			margin: 1% auto;
+		}
+		input[type=text] {
+			margin-bottom: 0px;
+		}
+		.mui-table-view-radio .mui-table-view-cell {
+			text-align: left;
+			padding-right: 0;
+			border: 1px solid #999999;
+			width: 100%;
+		}
+		.mui-table-view-cell {
+			margin-bottom: 0 !important;
+			padding: 6px;
+		}
+		.divradio .left_item {
+			margin-right: 1%;
+			width: 76%;
+			border: none;
+			outline: none;
+		}
+		.mui-content {
+			background: #FFFFFF !important;
+			margin: 0 auto;
+		}
+		#pickDateBtn {
+			border: none;
+			font-family: "微软雅黑";
+			font-size: 17px;
+			color: #009999;
+			padding: 0;
+			background: #FFFFFF;
+		}
+		#pickDateBtn1 {
+			border: none;
+			display: inline-block;
+			vertical-align: middle;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			color: #009999;
+			padding: 0;
+			background: #FFFFFF;
+		}
+		#buttons {
+			background: #FFFFFF;
+			border: none;
+			vertical-align: middle;
+			text-align: center;
+			opacity: 1;
+		}
+		#pickDateBtn2 {
+			border: none;
+			display: inline-block;
+			vertical-align: middle;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			color: #009999;
+			padding: 0;
+			background: #FFFFFF;
+		}
+		#pickDateBtn3 {
+			border: none;
+			display: inline-block;
+			vertical-align: middle;
+			background: #efeff4;
+			font-family: "微软雅黑";
+			font-size: 18px;
+			color: #8dcece;
+			padding: 0;
+			background: #FFFFFF;
+		}
+		#timeS {
+			width: 70%;
+			border: none;
+			outline: none;
+			height: 30px;
+			margin-left: 0;
+			
+		}
+		#finshed {
+			background: #FFFFFF;
+			font-family: "微软雅黑";
+			font-size: 17px;
+			margin-bottom: 5%;
+			color: #666666;
+		}
+		#finshed .usersName {
+			display: inline-block;
+			border-bottom: 1px solid #666666;
+			width: 12%;
+		}
+		#nav_parts,
+		#finshed,
+		#a_opion,
+		#work_complete,
+		#repair_results,
+		#repair_file,
+		#fault_p,
+		#nav_part,
+		#insearch,
+		#insearchs,
+		#top_part {
+			width: 100%;
+			margin: 0 auto;
+			margin-bottom: 1%;
+		}
+		#top_part ul {
+			width: 31.13%;
+			margin-left: 1%;
+			display: inline-block;
+		}
+		#top_part ul:first-of-type {
+			margin-left: 2%;
+		}
+		#b_color {
+			font-family: "微软雅黑";
+			color: #009999;
+		}
+		#nav_parts {
+			width: 92%;
+			margin: 0 auto;
+		}
+		#nav_part {
+			width: 92%;
+			margin: 0 auto;
+		}
+		#nav_parts ul {
+			display: inline-block;
+			width: 47.5%;
+			margin-left: 1%;
+		}
+		#nav_part ul {
+			display: inline-block;
+			width: 47.5%;
+			margin-left: 50%;
+		}
+		#nav_parts ul:first-of-type {
+			margin-left: 2%;
+		}
+		#nav_part ul:first-of-type {
+			margin-left: 2%;
+		}
+		#nav_parts ul li {
+			width: 100%;
+		}
+		#nav_part ul li {
+			width: 100%;
+			margin-left: 2%;
+		}
+		#nav_parts ul li input {
+			width: 84%;
+			border: none;
+			outline: none;
+		}
+		#nav_part ul li input {
+			width: 84%;
+			border: none;
+			outline: none;
+		}
+		#fault_p ul {
+			width: 96.6%;
+			margin-left: 2%;
+		}
+		#fault_p ul li textarea {
+			width: 100%;
+			border: none;
+			outline: none;
+			height: 80px;
+			float: left;
+			padding-left: 0;
+		}
+		#repair_file ul {
+			margin-left: 2%;
+			width: 96.6%;
+		}
+		#repair_file ul li textarea {
+			border: none;
+			outline: none;
+			height: 80px;
+			float: left;
+			padding-left: 0;
+		}
+		.mui-table-view-inverted .mui-table-view-cell.mui-active,
+		.mui-table-view-inverted .mui-table-view-cell>a:not(.mui-btn).mui-active {
+			background-color: #FFFFFF;
+			top: 29% !important;
+			left: 19% !important;
+		}
+		#repair_results ul {
+			margin-left: 2%;
+			width: 96.6%;
+		}
+		#seld {
+			display: inline-block;
+			height: 44px;
+		}
+		#seld img {
+			float: right;
+			vertical-align: middle;
+			margin: 4% 7% 0 0;
+		}
+		#name_equ img {
+			float: right;
+			vertical-align: middle;
+			margin: 2% 5% 0 0;
+		}
+		#repair_results ul li textarea {
+			border: none;
+			outline: none;
+			height: 80px;
+			float: left;
+			padding-left: 0;
+		}
+		#work_complete ul {
+			display: inline-block;
+			vertical-align: middle;
+			width: 47.55%;
+			margin-left: 1%;
+		}
+		#work_complete ul:first-of-type {
+			margin-left: 2%;
+		}
+		#work_complete ul:first-of-type {
+			margin-top: -1%;
+		}
+		.mui-popover-arrow .mui-bottom {
+			display: none;
+		}
+		.mui-popover .mui-popover-arrow {
+			position: absolute;
+			z-index: 996;
+			top: -25px;
+			left: 0;
+			overflow: hidden;
+			width: 295px;
+			height: 209px;
+		}
+		#work_complete ul:first-of-type li:last-of-type {
+			margin-top: 1%;
+		}
+		#cheak {
+			background: #efeff4;
+			font-family: "微软雅黑";
+			font-size: 18px;
+			display: inline-block;
+			color: #666666;
+			width: 100%;
+			padding: 2% 0;
+			background: #FFFFFF;
+		}
+		#data_l img {
+			float: right;
+			margin-right: 3%;
+			height: 29px;
+			vertical-align: middle;
+		}
+		#completes img {
+			float: right;
+			margin-right: 3%;
+			height: 29px;
+			vertical-align: middle;
+		}
+		#c_data {
+			width: 100%;
+		}
+		#c_data img {
+			float: right;
+			margin-right: 3%;
+			height: 29px;
+			vertical-align: middle;
+		}
+		
+		#simple {
+			
+			
+			width: 100%
+		}
+		.auto_s {
+			width: 95%;
+			margin: 0 auto;
+			background: #FFFFFF;
+		}
+		#work_complete ul:last-of-type textarea {
+			outline: none;
+			border: none;
+			
+			
+			float: left;
+			width: 100%;
+		}
+		#signModal {
+			display: none;
+			width: 100%;
+			height: 460px;
+			z-index: 3000;
+			position: absolute;
+			top: 53%;
+			left: 0;
+			background: rgba(255, 255, 255, 0.6);
+		}
+		.mui-btn-grey {
+			color: #fff;
+			
+			
+			background-color: #cccccc;
+		}
+		.mui-btn-warning,
+		.mui-btn-yellow {
+			color: #fff;
+		
+			
+			background-color: #ff7400;
+		}
+		#a_opion ul {
+			margin-left: 2%;
+			width: 96.6%;
+		}
+		#a_opion ul li textarea {
+			width: 100%;
+			height: 80px;
+			border: none;
+			outline: none;
+			padding-left: 0;
+		}
+		#finshed ul {
+			display: inline-block;
+			vertical-align: middle;
+			background: #FFFFFF;
+			width: 32%;
+		
+		}
+		#finshed ul:first-of-type {
+			margin-left: 2%;
+		}
+		#dSign img {
+			float: left;
+			width: 72%;
+			vertical-align: middle;
+			margin-left: 10%;
+			margin-right: 15%;
+		}
+		.mui-content-padded {
+			margin: 0;
+		}
+		#pSign img {
+			float: left;
+			width: 72%;
+			vertical-align: middle;
+			margin-left: 10%;
+			margin-right: 15%;
+		}
+		
+		#pSign,
+		#dSign {
+			width: 100%;
+			padding: 4% 0;
+			border-radius: 8%;
+			margin-left: 8%;
+			line-height: 170%;
+		}
+		.signs {
+			margin-left: 0;
+		}
+		.widths {
+			width: 58.49%;
+		}
+		#top_part #sethight {
+			height: 44px !important;
+		}
+		#nav_part #sethights {
+			height: 44px !important;
+		}
+		#top_part ul {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.fixed-table-pagination {
+			margin-top: 2%;
+		}
+		.pagination-detail {
+			font-size: 16px;
+			margin-left: -1.3%;
+		}
+	
+		#resov {
+			margin-left: 2%;
+		}
+		@media (max-width:768px) {
+			h2 {
+				text-align: center;
+				color: #009999;
+				font-weight: normal;
+				font-family: "微软雅黑";
+				font-size: 28px;
+				margin: 1% auto;
+			}
+			
+			.divradio .left_item {
+				width: 65%;
+			}
+			
+			#timeS {
+				width: 55%;
+			}
+			
+			#nav_part ul li input {
+				width: 76%;
+			}
+			
+			#nav_parts ul li input {
+				width: 76%;
+			}
+			
+			#nav_part {
+				margin: 1% auto;
+			}
+			
+			#nav_parts {
+				margin: 1% auto;
+			}
+			
+			#timeS2 {
+				width: 57%;
+			}
+			
+			.signs {
+				width: 34%;
+			}
+			
+			#pSign img {
+				float: left;
+				vertical-align: middle;
+				margin-left: 10%;
+				margin-right: 10%;
+				width: 80%;
+			}
+			
+			#dSign img {
+				float: left;
+				vertical-align: middle;
+				margin-left: 10%;
+				margin-right: 10%;
+				width: 80%;
+			}
+			
+			.widths {
+				width: 51.49%;
+			}
+			
+			#signModal {
+				display: none;
+				width: 100%;
+				height: 460px;
+				z-index: 100000;
+				position: absolute;
+				top: 28%;
+				background: rgba(255, 255, 255, 0);
+			}
+		}
+		@media (max-width: 1024px) {
+			#work_complete ul:last-of-type textarea {
+				padding: 2.8%;
+			}
+			
+			#cheak {
+				padding: 2.6% 0;
+			}
+			
+			.mui-table-view-cell.mui-active {
+				background: #FFFFFF;
+			}
+			
+			.divradio .left_item {
+				width: 59%;
+				font-size: 16px;
+				color: #333333;
+			}
+			
+			h2 {
+				text-align: center;
+				color: #009999;
+				font-weight: normal;
+				font-family: "微软雅黑";
+				font-size: 28px;
+				margin: 1% auto;
+			}
+			
+			#timeS1 {
+				width: 55%;
+				font-size: 18px;
+				border: none;
+				outline: none;
+				padding-top: 3px;
+				font-family: "微软雅黑";
+				padding-left: 0px;
+			}
+			
+			#timeS2 {
+				font-size: 18px;
+				font-family: "微软雅黑";
+				width: 65%;
+				border: none;
+				outline: none;
+			}
+			
+			#nav_parts,
+			#finshed,
+			#a_opion,
+			#work_complete,
+			#repair_results,
+			#box_bo,
+			#repair_data,
+			#nav_part,
+			#top_part {
+				width: 100%;
+				margin-bottom: 1%;
+			}
+			
+			#repair_data ul {
+				margin-left: 2%;
+				width: 96.6%;
+			}
+			
+			#repair_data ul #contan {
+				list-style: none;
+				height: 100px;
+				overflow-y: auto;
+			}
+			
+			#contan #OA_task_1 input {
+				border: none;
+				outline: none;
+			}
+			
+			#OA_task_1 li {
+				border-top: none;
+				border-left: none;
+				border-right: none;
+			}
+			
+			#repair_data ul li b {
+				font-family: "微软雅黑";
+				font-weight: normal;
+				font-size: 16px;
+			}
+			
+			#repair_data ul li .fon {
+				font-size: 16px;
+			}
+			
+			#fault_p {
+				width: 49%;
+				margin-left: 1%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			#repair_file {
+				width: 49%;
+				margin-left: -0.4%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			#timeS {
+				font-size: 18px;
+				width: 46%;
+				padding: 5px 0;
+				
+			}
+			
+			#nav_part ul li input {
+				width: 72%;
+			}
+			
+			#nav_parts ul li input {
+				width: 72%;
+			}
+			
+			#timeS2 {
+				width: 52%;
+				padding-left: 0;
+			}
+			
+			.signs {
+				width: 20%;
+			}
+			
+			.mui-checkbox.mui-left input[type=checkbox],
+			.mui-radio.mui-left input[type=radio] {
+				left: 18px;
+				top: -2px;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-size: 24px;
+			}
+		}
+		#confirmBtn {
+			display: inline-block;
+			margin-left: 150%;
+			background: #5bc0de;
+			color: #fff;
+		}
+		#listForm .lis {
+			list-style: none;
+			margin-top: 1%;
+		}
+		#listForm .lis input {
+			margin-right: 2%;
+		}
+		#listForm .lis span {
+			margin-right: 2%;
+		}
+		.myList {
+			display: none;
+		}
+		.styles {
+			display: block;
+		}
+		#contan table {
+			border-collapse: collapse;
+			border-color: #CCCCCC;
+			border: none;
+			width: 99%;
+			margin-left: 0%;
+		}
+		#contan {
+			border: none;
+		}
+		#btns {
+			color: #009999;
+		}
+		#btns:hover {
+			background: #008000;
+		}
+		#contan table th {
+			text-align: center;
+			width: 15%;
+			font-weight: normal;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			padding: 1%;
+			border-color: #CCCCCC;
+			border-collapse: collapse;
+		}
+		#contan table td {
+			text-align: center;
+			width: 15%;
+			font-family: "微软雅黑";
+			border-color: #CCCCCC;
+			border-collapse: collapse;
+		}
+		#contan table td input {
+			border: none;
+			outline: none;
+		}
+		#searchs {
+			width: 300px;
+		}
+		.theadOne {
+			width: 23.33%;
+			text-align: center;
+			padding: 1% 0;
+			margin-left: 0.3%;
+			display: inline-block;
+		}
+		#listForm table tbody tr input {
+			border: none;
+			outline: none;
+			background: transparent;
+		}
+		#contan table tbody tr input {
+			border: none;
+			outline: none;
+			background: transparent;
+		}
+		.datas {
+			padding: 0;
+		}
+		#repair_data ul #contan ul .datas li {
+			float: left;
+			width: 20%;
+			list-style: none;
+			text-align: center;
+		}
+		#repair_data ul #contan ul .datas li input {
+			text-align: center;
+		}
+		.th-inner {
+			color: #0D8870;
+		}
+		
+		.mui-search .mui-placeholder {
+			width: 100%;
+			margin-right: 3%;
+		}
+		.no-records-found {
+			text-align: center;
+		}
+		.insearch {
+			display: inline-block;
+			vertical-align: middle;
+			width: 40%;
+		}
+		.btn-group>.btn:first-child {
+			width: 70%;
+			padding: 3.8%;
+			/*margin-top: 0.4%;*/
+			
+			border-color: #999999;
+			font-size: 16px;
+			border-radius: 0;
+			font-family: "微软雅黑";
+		}
+		.dropdown-menu li a .text {
+			font-family: "微软雅黑";
+			font-size: 16px;
+		}
+		.open {
+			height: 500px;
+			top: 10%;
+		}
+		.bootstrap-select {
+			top: 0;
+		}
+		#nav_part .btn-group>.btn:first-child {
+			width: 100%;
+			border-radius: 0;
+		}
+		#confirmBtnG {
+			margin-left: 150%;
+			background: #5bc0de;
+			color: #fff;
+		}
+		.table {
+			margin-left: -2.5%;
+		}
+		.mui-action-back:hover {
+			background-color: #009999;
+		}
+		input[disabled="disabled"] {
+			color: #000000;
+			opacity: 1;
+		}
+

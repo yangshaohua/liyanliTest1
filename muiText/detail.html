@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css" />
+	</head>
+
+	<body>
+		<h2>广州华侨医院医疗设备保养 / 维修报告单
+			<a href="javascript:void(0)" class="mui-action-back" style="position: absolute;top: 0.4%;left: 3%;">
+						<img src="img/back.png" class="bor_himg1 fl" style="width: 70%;" />
+				</a>
+			<div class="mui-content-padded" style="margin: 5px;text-align: center;display: inline-block;">
+		
+			<div id="info">
+				
+			</div>
+		</div>
+		</h2>
+		<div class="mui-content" style="background-color: #f2f2f2;">
+			<div id="divright" style="width: 98%;height:100%;margin: 0 auto;">
+				<div class="divradio">
+					<div id="top_part">
+						<ul class="mui-table-view mui-table-view-radio ">
+
+							<li class="mui-table-view-cell" id="seld">
+								<span id="b_color">
+									科室：
+								</span>
+								<select name="" class="left_item" id="slect" disabled="disabled">
+								<option value="">请选择</option>
+
+								</select>
+
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio ">
+
+							<li class="mui-table-view-cell">
+								<span id="b_color">联系人：</span>
+								<input disabled="disabled" id="sq0" class="left_item " type="text" style="height: 30px;padding: 0;" />
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio ">
+
+							<li class="mui-table-view-cell" id="data_l">
+
+								<div style="display: inline-block; ">
+									<button id='pickDateBtn' type="button" class="mui-btn">送修日期:</button>
+								</div>
+
+								<input disabled="disabled" id="timeS" value="2017-5-4" type="text" style="" />
+								<img id="data_1" src="img/scroww_07.png" />
+							</li>
+						</ul>
+
+					</div>
+					<div id="nav_part">
+						<ul class="mui-table-view mui-table-view-radio ">
+							<li class="mui-table-view-cell" id="name_equ">
+								<span id="b_color">
+								设备名称：
+							</span>
+								<select disabled="disabled" name="" class="left_item p_data" id="e_name">
+									<option value="">请选择</option>
+								</select>
+
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio ">
+							<li class="mui-table-view-cell">
+								<span id="b_color">机身编号：</span>
+								<input disabled="disabled" id="num_name" name="" class="left_item p_data" type="text" style="height: 30px;" />
+
+							</li>
+						</ul>
+					</div>
+					<div id="nav_parts">
+						<ul class="mui-table-view mui-table-view-radio ">
+							<li class="mui-table-view-cell">
+								<span id="b_color">
+								设备型号：
+							</span>
+
+								<input disabled="disabled" class="left_item p_data" id="nx_name" type="text" style="height: 30px;" />
+
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio ">
+							<li class="mui-table-view-cell">
+								<span id="b_color">生产厂家：</span><input disabled="disabled" id="prM" type="text" style="height: 30px;" />
+							</li>
+						</ul>
+					</div>
+					<div id="box_bo">
+						<div id="fault_p">
+
+							<ul class="mui-table-view mui-table-view-radio">
+								<li class="mui-table-view-cell" style="text-indent: 0;">
+									<span id="b_color" style="display: block;">故障现象：</span><textarea disabled="disabled" id="sq1" style=""></textarea>
+
+								</li>
+							</ul>
+						</div>
+						<div id="repair_file" style="position: relative;">
+							<ul class="mui-table-view mui-table-view-radio">
+								<li class="mui-table-view-cell" style="text-indent: 0;">
+
+									<span id="b_color" style="display:inline-block; width: 83%;">送修随机附件及资料：</span><textarea disabled="disabled" id="sq2" style=""></textarea>
+
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="misd myList" style="position: absolute;left:5%;top:10%;width: 90%;z-index: 800;background: write;height: 800px;">
+						<div class="recover1">
+
+						</div>
+
+						<ul id="listForm" style="height: 700px;background: white;border: 0.1px solid transparent;">
+							<h2 style="padding-top: 2%;margin-left: -6%;"> 配件信息表</h2>
+							<div style="margin-top: 2%;">
+								<p style="float:right;vertical-align: middle;width: 45%;margin-right: 2%;margin-top: 2%;"><input style="width: 80%;" type="text" name="search" id="searchn" value="" placeholder="按设备名字查询" /> <button class="btn-primary" onclick="searche()" style="margin-top: 1%;margin-left: 0%;">查询</button> </p>
+								<p style="display: inline-block;width: 45%;vertical-align: middle;margin-top: 2%;margin-left: 5%;"><input style="width: 80%;" type="text" name="search" id="searchd" value="" placeholder="物资类别查询" /></p>
+							</div>
+
+							<table id="table" class="listTable">
+								<thead>
+									<tr>
+										<th data-field="state" data-align="center" data-checkbox="true"></th>
+										<th data-field="Id" data-visible="false">编号</th>
+										<th data-field="DeviceName" data-align="center">设备名称</th>
+										<th data-field="DeviceCode" data-align="center">设备编号</th>
+										<th data-field="ManufacturerName" data-align="center">生产厂家</th>
+										<th data-field="FinishState" data-formatter="getStatus" data-align="center">是否完成</th>
+										<th data-field="Remark" data-align="center">备注</th>
+
+									</tr>
+								</thead>
+
+							</table>
+							<button id="confirmBtns" style="float: right;margin-right: 4%;margin-bottom: 2%;">确定</button>
+							<button id="confirmBtnfalse" style="float: right;margin-right: 4%;margin-bottom: 2%;">取消</button>
+						</ul>
+					</div>
+
+					<div id="repair_data">
+						<ul class="mui-table-view mui-table-view-radio">
+
+							<div style="background: white;" style="position: relative;">
+								<span id="b_color" class="theadOne tbodys" style="margin-left: 1.5%;">名称</span>
+								<span id="b_color" class="theadOne tbodys" style="margin-left:1.2%;">配件编号</span>
+								<span id="b_color" class="theadOne tbodys" style="margin-left: 1.2%;">单价</span>
+								<span id="b_color" class="theadOne tbodys" style="margin-left:-0.2%;">数量</span>
+
+							</div>
+							<li id="contan" class="mui-table-view-cell" style="text-indent: 0;width: 100%;">
+
+								<ul id="OA_task_1" class="mui-table-view" style="width:101%;margin-bottom: 1%;margin-left: -0.8%;">
+
+								</ul>
+
+							</li>
+						</ul>
+					</div>
+
+					<div id="repair_results">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell" style="text-indent: 0;">
+								<span style="display:block;" id="b_color">保养 / 维修结果：</span><textarea disabled="disabled" id="sq3" style=""></textarea>
+
+							</li>
+						</ul>
+					</div>
+
+					<div id="work_complete" style="border:0.1px solid transparent">
+						<ul class="mui-table-view mui-table-view-radio" style="margin-top: 0%;">
+							<li class="mui-table-view-cell">
+								<div id="c_data" style="display: inline-block; ">
+									<button id='pickDateBtn1' type="button" class="mui-btn">工作完成日期:</button>
+									<input disabled="disabled" id="timeS1" value="" type="text" style="width: %;margin-left: 0;" />
+									<img id="data_2" src="img/scroww_07.png" />
+								</div>
+							</li>
+
+							<li class="mui-table-view-cell mui-selected">
+								<p id="cheak" style="display: inline-block;vertical-align: middle;width: 31%;">
+									<span id="b_color" style="display: inline-block;vertical-align: middle;">工作完成否：</span>
+
+								</p>
+								<div class="mui-table-view-radio mui-left mui-radio" style="display: inline-block;vertical-align: middle;width: 20%;line-height: 25px;">
+									<input disabled="disabled" style="margin-left: 7%;" type="radio" onclick="hid()" name="radio1" id="complete" value="1" /><span>是</span>
+
+								</div>
+								<div class="mui-input-row mui-radio mui-left" style="display: inline-block;vertical-align: middle; width: 20%;line-height: 25px;">
+									<input disabled="disabled" id="sq4" style="margin-left: 7%;" checked="checked" type="radio" name="radio1" onclick="appear()" value="0" /> <span>否</span>
+								</div>
+
+							</li>
+
+						</ul>
+
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell">
+								<span id="b_color" style="float: left;">未完成原因：</span><textarea disabled="disabled" id="fobidden" style="float: left;"></textarea>
+							</li>
+						</ul>
+					</div>
+
+					<div id="a_opion">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell" style="text-indent:0;">
+								<span id="b_color" style="float: left;display: block;">科室验收意见：</span><textarea disabled="disabled" id="suggests" style="float: left;"></textarea>
+							</li>
+						</ul>
+					</div>
+					<div id="finshed">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell" id="completes">
+
+								<div style="display: inline-block;">
+									<button id='pickDateBtn2' type="button" class="mui-btn">验收日期:</button>
+								</div>
+
+								<input disabled="disabled" id="timeS2" value="" type="text" style="height: 30px;margin-left: 0;" />
+
+								<img id="data_3" src="img/scroww_07.png" />
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio" style="border: none;">
+							<li class="mui-table-view-cell" style="border: none;">
+
+								<div style="display: inline-block;vertical-align: middle;color: #0d8870;font-size: 16px;">验收人</div>
+								<div class="widths" style="border-bottom: 1px solid #0d8870;display: inline-block;vertical-align: middle; height: 40px;">
+									<label id="pImg"></label>
+								</div>
+								<div class="signs mui-content-padded" style="display: inline-block;vertical-align: middle;">
+									<a id='pSign' style="display: inline-block;background: #FFFFFF;color: #FFFFFF;"> <img src="img/sign.png"></a>
+
+								</div>
+
+							</li>
+
+						</ul>
+						<ul class="mui-table-view mui-table-view-radio" style="border: none;">
+							<li class="mui-table-view-cell" style="border: none;">
+
+								<div style="vertical-align: middle;display: inline-block;color: #0d8870;font-size: 16px;">检修人</div>
+								<div class="widths" style="border-bottom: 1px solid #0d8870;vertical-align: middle;display: inline-block;height: 40px;">
+									<label id="dImg"></label>
+								</div>
+								<div class="signs mui-content-padded" style="vertical-align: middle;display: inline-block;">
+									<a id='dSign' style="display: inline-block;background: #FFFFFF;color: #FFFFFF;"> <img src="img/sign.png"></a>
+								</div>
+
+							</li>
+
+						</ul>
+
+						<div id="signModal" class="" style="">
+							<div class="recover"></div>
+
+							<div class="auto_s">
+
+								<canvas id="simple" style="">
+									
+								</canvas>
+								<div id="buttons" style="">
+									<button id="cancelCanvas" class="mui-btn mui-btn-grey mui-col-sm-3" style="height: 45px;display: inline-block;margin-left: 22.5%;">取消</button>
+									<button id="clear" class="mui-btn mui-btn-warning mui-col-sm-3" style="height: 45px;display: inline-block;">重写</button>
+									<button id="save" class="mui-btn mui-col-sm-3" style="height: 45px;background-color: #009999;color: white;float: right;padding-right: 0px;">确定</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-table.min.js"></script>
+		<script src="js/bootstrap-table-locale-all.min.js"></script>
+		<script src="js/bootstrap-table-zh-CN.min.js"></script>
+		<script type="text/javascript" src="js/customer.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script type="text/javascript" src="js/detail.js"></script>
+	</body>
+
+</html>
